@@ -8,5 +8,5 @@ spec:
     app: "{{ .Values.service.name }}-db"
   type: ClusterIP
   ports:
-    - port: 9000
-      targetPort: 9000
+    - port: 8123
+      targetPort: 8123

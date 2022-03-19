@@ -6,4 +6,4 @@ metadata:
   labels:
     build: "{{ .Values.service.build }}"
 data:
-  CLICKHOUSECONNECTIONSTRING: "Host=onediscoverydemodb;Port=8123;Database=default;Username={{ .Values.db.user }};Password={{ .Values.db.password }}"
+  CLICKHOUSECONNECTIONSTRING: "Host=one-discovery-demo-db-ip;Port=8123;Database=default;Username={{ .Values.db.user }};Password={{ .Values.db.password }}"
