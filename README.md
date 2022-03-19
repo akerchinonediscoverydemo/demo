@@ -1,4 +1,4 @@
-# One Discovery / Architecure suggestions
+# One Discovery / Architecture suggestions
 ### _Demo App_
 Structure:
 ##### OneDiscoveryDemoApi
