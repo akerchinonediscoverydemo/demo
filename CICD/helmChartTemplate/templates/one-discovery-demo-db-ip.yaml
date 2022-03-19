@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: "{{ .Release.Namespace }}"
+  name: "{{ .Values.service.name }}-db-ip"
+spec:
+  selector:
+    app: "{{ .Values.service.name }}-db"
+  type: ClusterIP
+  ports:
+    - port: 9000
+      targetPort: 9000

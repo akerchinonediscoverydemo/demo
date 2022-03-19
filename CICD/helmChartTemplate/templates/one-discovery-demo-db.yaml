@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  namespace: "{{ .Release.Namespace }}"
+  name: "{{ .Values.service.name }}-db"
+spec:
+  selector:
+    matchLabels:
+      app: "{{ .Values.service.name }}-db"
+  serviceName: "{{ .Values.service.name }}-db"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: "{{ .Values.service.name }}-db"
+    spec:
+      containers:
+        - name: "{{ .Values.service.name }}-db"
+          image: yandex/clickhouse-server:latest
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: 9000
+          envFrom:
+            - configMapRef:
+                name: "{{ .Values.service.name }}-db-config"
+          volumeMounts:
+            - mountPath: /data/postgres
+              name: "{{ .Values.service.name }}-db-disk"
+  volumeClaimTemplates:
+    - metadata:
+        name: "{{ .Values.service.name }}-db-disk"
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: "50Gi"

@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: "{{ .Values.service.name }}-ui"
+  labels:
+    build: "{{ .Values.service.build }}"
+spec:
+  selector:
+    matchLabels:
+      app: "{{ .Values.service.name }}-ui"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: "{{ .Values.service.name }}-ui"
+        build: "{{ .Values.service.build }}"
+    spec:
+      containers:
+        - name: "{{ .Values.service.name }}-ui"
+          image: "{{ .Values.service.uiImage }}"
+          imagePullPolicy: "{{ .Values.service.imagePullPolicy }}"
+          ports:
+            - containerPort: 443
+          volumeMounts:
+            - mountPath: /etc/nginx
+              readOnly: true
+              name: {{ .Values.service.name }}-ui-config
+      volumes:
+        - name: {{ .Values.service.name }}-ui-config
+          configMap:
+            name: {{ .Values.service.name }}-ui-config
+            items:
+              - key: nginx.conf
+                path: nginx.conf
+              - key: akerchin.crt
+                path: akerchin.crt
+              - key: akerchin.key
+                path: akerchin.key
+              - key: mime.types
+                path: mime.types
+      imagePullSecrets:
+        - name: {{ .Values.service.name }}-acr-secret

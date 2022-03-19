@@ -1,0 +1,14 @@
+Release:
+  Namespace: %NAMESPACE%
+service:
+  build: %BUILD%
+  name: one-discovery-demo
+  apiImage: %API_SERVICE_IMAGE%
+  uiImage: %UI_SERVICE_IMAGE%
+  imagePullPolicy: Always
+  containerRegistrySecret: %CONTAINER_REGISTRY_SECRET%
+  domain: %DOMAIN%
+db:
+  user: onediscoverydemouser
+  password: onediscoverydemopassword
+    

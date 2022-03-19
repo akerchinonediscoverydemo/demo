@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31829.152
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneDiscoveryDemoApi", "OneDiscoveryDemoApi\OneDiscoveryDemoApi.csproj", "{687BD092-37E2-4C5B-B896-9BD04A5A5149}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "OneDiscoveryDemoApi\docker-compose.dcproj", "{398B61A9-8389-434E-A7C5-2F3926C1EE9D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{687BD092-37E2-4C5B-B896-9BD04A5A5149}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{687BD092-37E2-4C5B-B896-9BD04A5A5149}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{687BD092-37E2-4C5B-B896-9BD04A5A5149}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{687BD092-37E2-4C5B-B896-9BD04A5A5149}.Release|Any CPU.Build.0 = Release|Any CPU
+		{398B61A9-8389-434E-A7C5-2F3926C1EE9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{398B61A9-8389-434E-A7C5-2F3926C1EE9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{398B61A9-8389-434E-A7C5-2F3926C1EE9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{398B61A9-8389-434E-A7C5-2F3926C1EE9D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {67241A62-3AAA-4E79-BFAA-B133E2DDC81D}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,36 @@
+version: '3.5'
+
+services:
+  onediscoverydemoapi:
+    image: viacoderegistry.azurecr.io/onediscoverydemoapi:latest    
+    restart: always
+    container_name: onediscoverydemoapi
+    networks:
+      - onediscovery_network
+
+  onediscoverydemoui:
+    image: viacoderegistry.azurecr.io/onediscoverydemoui:latest  
+    restart: always
+    container_name: onediscoverydemoui
+    ports:
+      - 8085:80
+    networks:
+      - onediscovery_network
+
+  onediscoverydemodb:
+    image: yandex/clickhouse-server:latest
+    environment:
+      - CLICKHOUSE_USER=onediscoverydemouser
+      - CLICKHOUSE_PASSWORD=onediscoverydemopassword
+    container_name: onediscoverydemodb
+    volumes:
+        - onediscovery_volume:/var/lib/clickhouse
+    networks:
+        - onediscovery_network
+
+volumes:
+  onediscovery_volume:
+
+networks:
+  onediscovery_network:
+    driver: bridge

@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: "{{ .Values.service.name }}-api-config"
+  labels:
+    build: "{{ .Values.service.build }}"
+data:
+  CLICKHOUSECONNECTIONSTRING: "Host=onediscoverydemodb;Port=8123;Database=default;Username={{ .Values.db.user }};Password={{ .Values.db.password }}"

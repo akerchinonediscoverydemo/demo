@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: "{{ .Values.service.name }}-db-config"
+  labels:
+    build: "{{ .Values.service.build }}"
+data:
+  CLICKHOUSE_USER: "{{ .Values.db.user }}"
+  CLICKHOUSE_PASSWORD: "{{ .Values.db.password }}"

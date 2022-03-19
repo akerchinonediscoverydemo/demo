@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: "{{ .Release.Namespace }}"
+  name: "{{ .Values.service.name }}-api-ip"
+  labels:
+    build: "{{ .Values.service.build }}"
+spec:
+  selector:
+    app: "{{ .Values.service.name }}-api"
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80

@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: "{{ .Release.Namespace }}"
+  name: "{{ .Values.service.name }}-api"
+  labels:
+    build: "{{ .Values.service.build }}"
+spec:
+  selector:
+    matchLabels:
+      app: "{{ .Values.service.name }}-api"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: "{{ .Values.service.name }}-api"
+        build: "{{ .Values.service.build }}"
+    spec:
+      containers:
+        - name: "{{ .Values.service.name }}-api"
+          image: "{{ .Values.service.apiImage }}"
+          imagePullPolicy: "{{ .Values.service.imagePullPolicy }}"
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: "{{ .Values.service.name }}-api-config"
+      imagePullSecrets:
+        - name: {{ .Values.service.name }}-acr-secret

@@ -1,0 +1,7 @@
+apiVersion: v2
+description: Demo Helm Chart for One Discovery.
+type: application
+name: one-discovery-demo
+version: 1.0.0
+appVersion: 1.0.0
+kubeVersion: ">=1.16.0-0"

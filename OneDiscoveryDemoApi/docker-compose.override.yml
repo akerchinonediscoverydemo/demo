@@ -1,0 +1,14 @@
+version: '3.5'
+
+services:
+  onediscoverydemoapi:
+    build:
+      context: ../
+      shm_size: 1gb
+      dockerfile: OneDiscoveryDemoApi/Dockerfile
+      args:
+        - BUILD_MODE=Debug
+  onediscoverydemoui:
+    build:
+      context: ../
+      dockerfile: OneDiscoveryDemoUi/Dockerfile

@@ -1,0 +1,21 @@
+table {
+    width: 100%;
+}
+
+.form-field {
+    width: 100%;
+}
+
+.label {
+    color: #e7e7e7;
+}
+
+.file-input {
+    display: none;
+}
+
+.section {
+    margin: 20px;
+}
+
+button {background-color: #e7e7e7; color: black;} 
