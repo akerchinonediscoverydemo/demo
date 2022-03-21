@@ -62,7 +62,7 @@ Clickhouse is an open-source column-oriented database management system that all
 It’s easy to insert hundreds of millions of rows in a small period of time even with a pure hardware.
 So, it should allow easily onboard the new clients. 
 2)	The data stored by column rather than by row, it uses LZ4 to compress the data. Its possible to use ZSTD to save even more space. Clickhouse is able to compress the data far better than a row-oriented database like MS SQL. In case when you have 1 Tb database in MS SQL it will take less than 200 Gb to store the same data in Clickhouse. 
-3)	Clickhouse is about 250x faster than MS SQL on an analytical query on a dataset with 10M records. Sure, it’s not a silver bullet, with its a great choice for BigData projects without complicated relations and minimal updates.
+3)	Clickhouse is about 250x faster than MS SQL on an analytical query on a dataset with 10M records. It’s not a silver bullet, while it is a great choice for BigData projects without complicated relations and minimal updates.
 4) It's free & opensource (Apache License 2.0). 
 5)	Clickhouse is used by Cloudflare, Bloomberg, eBay, Spotify, CERN, and 100s more companies in production. Yandex, for example, has multiple Clickhouse clusters with data of over 120 trillion rows and worth over 100 PiB. This shows how serious the companies are in adopting Clickhouse.
 
@@ -102,7 +102,7 @@ For now its #1 as a Search engine in the world:
 https://db-engines.com/en/ranking
 Elasticsearch allows you to store, search, and analyze huge volumes of data quickly and in near real-time and give back answers in milliseconds. It’s able to achieve fast search responses because instead of searching the text directly, it searches an index. It takes into account the morphology, language structure, particular qualities and it can create valid scoring/ranking for search.
 
-Ky points of Elasticsearch
+Key points of Elasticsearch
 1. Scalability
 2. Fast performance
 3. Multilingual
